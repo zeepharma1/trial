@@ -1,1 +1,80 @@
-india is my counntry
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DevOps & Cloud Freelancer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 60%;
+      margin: auto;
+      padding: 40px;
+      background: #fff;
+      margin-top: 60px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #28a745;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👋 Welcome! I'm a Freelance DevOps & Cloud Expert</h1>
+    <p>I specialize in <strong>Cloud Cost Optimization</strong> and <strong>DevOps Guidance</strong>. Let me help you scale smart and save!</p>
+    
+    <h2>📩 Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="What service are you looking for?" rows="5" required></textarea>
+      <button type="submit">Send Details</button>
+    </form>
+    <p id="status"></p>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      const response = await fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      const result = await response.text();
+      document.getElementById("status").innerText = result;
+      this.reset();
+    });
+  </script>
+</body>
+</html>
