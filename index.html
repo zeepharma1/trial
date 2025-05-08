@@ -48,7 +48,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>👋 Welcome! We provide Freelance services in DevOps & Cloud (AWS, Azure or GCP) </h1>
+    <h1>👋 Welcome! We provide Freelance services in DevOps & Cloud (AWS, Azure or GCP)</h1>
     <p>We specialize in <strong>Cloud Cost Optimization</strong> and <strong>DevOps work</strong>. Let us help you scale smart and save!</p>
     
     <h2>📩 Contact Me</h2>
@@ -66,11 +66,13 @@
       e.preventDefault();
       const formData = new FormData(this);
       const data = Object.fromEntries(formData.entries());
-      const response = await fetch("http://localhost:3000/contact", {
+
+      const response = await fetch("http://15.206.169.163:3000/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
+
       const result = await response.text();
       document.getElementById("status").innerText = result;
       this.reset();
