@@ -1,0 +1,60 @@
+Required tools:
+
+1. terraform
+2. jenkins
+3. git - done
+4. maven
+5. docker 
+6. kubernetes
+7. prometheus
+
+1. Terraform:
+steps to install 
+
+i. install HashiCorp's Debian package repository.
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+
+ii. Install the HashiCorp GPG key. 
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+gpg --dearmor | \
+sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+
+iii. Verify the key's fingerprint.
+Install the HashiCorp GPG key.
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+gpg --dearmor | \
+sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+
+iv. Add the official HashiCorp repository to your system
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+v. Download the package information from HashiCorp.
+sudo apt update
+
+vi. Install Terraform from the new repository.
+sudo apt-get install terraform
+
+
+2. Jenkins
+
+# Pre-requesite to install jenkins
+• sudo -i 
+• sudo apt update -y
+• sudo apt install git -y
+• sudo apt install openjdk-17-jre -y
+• java -version
+• sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+• echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+ https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list > /dev/null
+• sudo apt-get update
+• sudo apt-get install jenkins -y
+# Post Installation activity run the below commands
+• systemctl status jenkins 
+• systemctl stop jenkins 
+• systemctl start jenkins 
+• systemctl restart jenkins 
+• systemctl enable jenkin
+
+
